@@ -4,14 +4,14 @@
 Meteor.methods({
     registerDevice: function (mobileNumber, regId, deviceId) {
 
-        console.log("Server: " + mobileNumber + regId + deviceId);
-
-        DeviceRegistration.insert({
+        var id = DeviceRegistration.insert({
             mobileNumber: mobileNumber,
             regId: regId,
             deviceId: deviceId,
             created: new Date()
         });
+
+        return id;
     },
     updateDispName: function (mobileNumber, dispName) {
 

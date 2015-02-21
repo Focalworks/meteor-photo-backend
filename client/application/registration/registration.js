@@ -6,3 +6,9 @@ Template.registation.helpers({
         return DeviceRegistration.find();
     }
 });
+
+Template.registation.events({
+    'click .notification' : function (event) {
+        //Meteor.call('sendDeviceRegisteredNotification', 1);
+    }
+});

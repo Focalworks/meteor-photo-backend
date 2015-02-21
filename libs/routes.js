@@ -29,8 +29,18 @@ if (Meteor.isServer) {
     }));
 }
 
-Router.route('/register-device', function () {
+Router.route('/post', function () {
     body = this.request.body;
-    Meteor.call('registerDevice', body.mobileNumber, body.registrationId, body.deviceId);
-    this.response.end("Call served");
+
+    var id = Meteor.call('registerDevice', body.mobileNumber, body.registrationId, body.deviceId);
+    var device = DeviceRegistration.find({"_id": id}).fetch();
+    var gcmRegId = device[0].regId;
+
+    /*var ids = [];
+    device.forEach(function (dev) {
+        ids.push(dev.regId);
+    });*/
+
+    Meteor.call('sendDeviceRegisteredNotification', gcmRegId);
+    this.response.end("Call served: " + id);
 }, {where: 'server'});
