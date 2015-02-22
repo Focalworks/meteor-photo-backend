@@ -9,6 +9,16 @@ Router.route('/', function () {
     this.render('registation');
 });
 
+Router.route('/device-listing', function () {
+    this.render('registation');
+});
+
+Router.route('/device-details/:_id', function () {
+    var device = DeviceRegistration.findOne({_id: this.params._id});
+    console.log(device);
+    this.render('deviceDetails', {data: device});
+});
+
 HTTP.methods({
     'hello': {
         requestHeaders: function (request) {
