@@ -10,3 +10,5 @@ iron:router
 http
 cfs:http-methods
 aldeed:simple-schema
+accounts-ui
+accounts-password
