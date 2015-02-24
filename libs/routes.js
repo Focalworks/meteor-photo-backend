@@ -21,7 +21,7 @@ Router.route('/', function () {
 
 Router.route('/device-listing', {
   controller: 'AdminController',
-  template: 'deviceDetails'
+  template: 'registation'
 });
 
 Router.route('/device-details/:_id', function () {

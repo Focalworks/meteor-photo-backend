@@ -15,5 +15,10 @@ Meteor.methods({
     },
     updateDispName: function (mobileNumber, dispName) {
 
+    },
+    removeDeviceById: function(id) {
+        if (Meteor.user()) {
+            DeviceRegistration.remove(id);
+        }
     }
 });

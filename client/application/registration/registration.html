@@ -1,14 +1,36 @@
 <template name="registation">
-    <button class="notification">Click</button>
     <div class="row">
         <div class="col-md-4">
-            <ul class="list-group">
+            <table class="table table-bordered table-responsive table-striped">
+                <thead>
+                <tr>
+                    <th>Mobile number</th>
+                    <th>Device Id</th>
+                    <th>Display name</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
                 {{#each registrations}}
-                    <li class="list-group-item">
-                        <a href="/device-details/{{_id}}">{{mobileNumber}}</a>
-                    </li>
+                <tr>
+                    <td>{{mobileNumber}}</td>
+                    <td>{{deviceId}}</td>
+                    <td>a</td>
+                    <td>
+                        <a href="/device-details/{{_id}}" class="glyphicon glyphicon-eye-open"></a>
+                        <a href="/device-details/{{_id}}" class="glyphicon glyphicon-remove-sign delete" data-id="{{_id}}"></a>
+                    </td>
+                </tr>
                 {{/each}}
-            </ul>
+                </tbody>
+            </table>
+            <!--<ul class="list-group">-->
+                <!--{{#each registrations}}-->
+                    <!--<li class="list-group-item">-->
+                        <!--<a href="/device-details/{{_id}}">{{mobileNumber}}</a>-->
+                    <!--</li>-->
+                <!--{{/each}}-->
+            <!--</ul>-->
         </div>
         <div class="col-md-4"></div>
         <div class="col-md-4"></div>

@@ -12,3 +12,4 @@ cfs:http-methods
 aldeed:simple-schema
 accounts-ui
 accounts-password
+twbs:bootstrap
