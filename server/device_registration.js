@@ -13,8 +13,8 @@ Meteor.methods({
 
         return id;
     },
-    updateDispName: function (mobileNumber, dispName) {
-
+    updateDispName: function (mobileNumber, displayName) {
+        DeviceRegistration.update({mobileNumber: mobileNumber}, {$set: {displayName: displayName}});
     },
     removeDeviceById: function(id) {
         if (Meteor.user()) {

@@ -7,7 +7,7 @@ Template.registation.rendered = function () {
 
 Template.registation.helpers({
     'registrations' : function () {
-        return DeviceRegistration.find();
+        return DeviceRegistration.find({}, {sort: {created: -1}});
     }
 });
 

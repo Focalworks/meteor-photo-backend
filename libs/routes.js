@@ -60,4 +60,12 @@ Router.route('/device-register', function () {
   this.response.end("Call served: " + id);
 }, {where: 'server'});
 
-Router.route('testing')
+Router.route('/update-display-name', function () {
+    body = this.request.body;
+
+    var mobileNumber = body.mobileNumber;
+    var displayName = body.displayName;
+    Meteor.call('updateDispName', mobileNumber, displayName);
+
+    this.response.end("Display name updated for : " + mobileNumber);
+}, {where: 'server'});
