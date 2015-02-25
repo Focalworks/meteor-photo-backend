@@ -1,6 +1,11 @@
 /**
  * Created by Amitav Roy on 21/2/15.
  */
+
+Meteor.publish("deviceRegistration", function () {
+    return DeviceRegistration.find({}, {sort: {created: -1}});
+});
+
 Meteor.methods({
     registerDevice: function (mobileNumber, regId, deviceId) {
 

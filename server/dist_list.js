@@ -1,6 +1,11 @@
 /**
  * Created by Amitav Roy on 24/2/15.
  */
+
+Meteor.publish("distributionList", function () {
+    return DistributionList.find({}, {sort: {created: -1}});
+});
+
 Meteor.methods({
     createNewDistList: function(name, creator, displayName, members) {
 

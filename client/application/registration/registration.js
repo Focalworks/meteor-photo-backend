@@ -1,6 +1,8 @@
 /**
  * Created by Amitav Roy on 21/2/15.
  */
+Meteor.subscribe("deviceRegistration");
+
 Template.registation.created = function() {
     console.log(this);
 };

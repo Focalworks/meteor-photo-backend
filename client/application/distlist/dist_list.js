@@ -1,6 +1,9 @@
 /**
  * Created by Amitav Roy on 24/2/15.
  */
+
+Meteor.subscribe("distributionList");
+
 Template.distListListing.helpers({
     distLists: function() {
         return DistributionList.find({}, {sort: {created: -1}});
