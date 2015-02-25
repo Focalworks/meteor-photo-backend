@@ -1,0 +1,30 @@
+<template name="photoSets">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Photo sets</h1>
+            <table class="table table-bordered table-responsive table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Creator</th>
+                    <th>Display name</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each photosets}}
+                    <tr>
+                        <td><a href="/photo-sets/{{_id}}">{{name}}</a></td>
+                        <td>{{createdBy}}</td>
+                        <td>{{displayName}}</td>
+                        <td>
+                            <a href="/photo-sets/{{_id}}" class="glyphicon glyphicon-eye-open"></a>
+                            <a href="/photo-sets/{{_id}}" class="glyphicon glyphicon-remove-sign delete" data-id="{{_id}}"></a>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,10 @@
+<template name="photoSetDetails">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{photoSet.name}}</h1>
+            <p>Created by: {{photoSet.displayName}}</p>
+            <p>Mobile number: {{photoSet.createdBy}}</p>
+            <p>Distribution list: <a href="/dist-list-listing/{{photoSet.distListId}}">Group</a></p>
+        </div>
+    </div>
+</template>

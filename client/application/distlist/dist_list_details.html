@@ -1,0 +1,15 @@
+<template name="distListDetails">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{name}}</h1>
+            <p>Creator: {{creator}} - Display Name: {{displayName}}</p>
+            <p>Created on: {{created}}</p>
+            <p>Members: </p>
+            <ul>
+                {{#each members}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</template>

@@ -1,6 +1,10 @@
 /**
  * Created by Amitav Roy on 21/2/15.
  */
+Template.registation.created = function() {
+    console.log(this);
+};
+
 Template.registation.rendered = function () {
     this.$('[data-toggle="dropdown"]').dropdown();
 };

@@ -1,35 +1,15 @@
 /**
  * Created by Amitav Roy on 21/2/15.
  */
-AdminController = RouteController.extend({
-  onBeforeAction: function () {
-    if (Meteor.user() === null) {
-      Router.go('/');
-    }
 
-    this.next();
-  }
-});
+/*For post data*/
+if (Meteor.isServer) {
+    Router.onBeforeAction(Iron.Router.bodyParser.urlencoded({
+        extended: false
+    }));
+}
 
-Router.configure({
-  layoutTemplate: 'layout'
-});
-
-Router.route('/', function () {
-  this.render('home');
-});
-
-Router.route('/device-listing', {
-  controller: 'AdminController',
-  template: 'registation'
-});
-
-Router.route('/device-details/:_id', function () {
-  var device = DeviceRegistration.findOne({_id: this.params._id});
-  this.render('deviceDetails', {data: device});
-});
-
-HTTP.methods({
+/*HTTP.methods({
   'hello': {
     requestHeaders: function (request) {
       console.log("Req" + request);
@@ -41,13 +21,7 @@ HTTP.methods({
       });
     }
   }
-});
-
-if (Meteor.isServer) {
-  Router.onBeforeAction(Iron.Router.bodyParser.urlencoded({
-    extended: false
-  }));
-}
+});*/
 
 Router.route('/device-register', function () {
   body = this.request.body;
@@ -68,4 +42,23 @@ Router.route('/update-display-name', function () {
     Meteor.call('updateDispName', mobileNumber, displayName);
 
     this.response.end("Display name updated for : " + mobileNumber);
+}, {where: 'server'});
+
+Router.route('/add-dist-list-and-members', function () {
+    body = this.request.body;
+
+    var name, creator, displayName, members;
+    name = body.name;
+    creator = body.creator;
+    members = EJSON.parse(body.members);
+    displayName = body.displayName;
+    memObj = [];
+
+    for (var i=0; i < members.length; i++) {
+        memObj.push(members[i]);
+    }
+
+    var distListId = Meteor.call('createNewDistList', name, creator, displayName, memObj);
+
+    this.response.end(distListId);
 }, {where: 'server'});

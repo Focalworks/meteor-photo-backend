@@ -1,0 +1,30 @@
+<template name="distListListing">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Distribution lists</h1>
+            <table class="table table-bordered table-responsive table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Creator</th>
+                    <th>Display name</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each distLists}}
+                    <tr>
+                        <td><a href="/dist-list-listing/{{_id}}">{{name}}</a></td>
+                        <td>{{creator}}</td>
+                        <td>{{displayName}}</td>
+                        <td>
+                            <a href="/dist-list-listing/{{_id}}" class="glyphicon glyphicon-eye-open"></a>
+                            <a href="/dist-list-listing/{{_id}}" class="glyphicon glyphicon-remove-sign delete" data-id="{{_id}}"></a>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
