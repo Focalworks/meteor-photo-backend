@@ -1,0 +1,13 @@
+<template name="userList">
+    <div class="row">
+        <div class="col-md-12">
+            <p>This is the user list</p>
+            <ul>
+                <li>Dummy</li>
+                {{#each users}}
+                <li>{{username}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</template>

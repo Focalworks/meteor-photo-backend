@@ -2,6 +2,7 @@
  * Created by Amitav Roy on 24/2/15.
  */
 Meteor.publish("photoset", function () {
+    console.log('Photo set published');
     return PhotoSet.find({}, {sort: {created: -1}});
 });
 

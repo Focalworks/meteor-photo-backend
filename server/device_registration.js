@@ -3,7 +3,13 @@
  */
 
 Meteor.publish("deviceRegistration", function () {
-    return DeviceRegistration.find({}, {sort: {created: -1}});
+    if (Roles.userIsInRole(this.userId, ['superadmin', 'manager'])) {
+        console.log('device registration published');
+        return DeviceRegistration.find({}, {sort: {created: -1}});
+    } else {
+        this.stop();
+        return;
+    }
 });
 
 Meteor.methods({
