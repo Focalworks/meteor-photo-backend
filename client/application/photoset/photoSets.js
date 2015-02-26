@@ -1,7 +1,6 @@
 /**
  * Created by Amitav Roy on 24/2/15.
  */
-Meteor.subscribe("photoset");
 
 Template.photoSets.helpers({
     photosets: function () {

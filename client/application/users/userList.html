@@ -1,0 +1,30 @@
+<template name="userList">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>User listing</h1>
+            <table class="table table-bordered table-responsive table-striped">
+                <thead>
+                <tr>
+                    <th>Mobile number</th>
+                    <th>Device Id</th>
+                    <th>Display name</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each users}}
+                    <tr>
+                        <td>{{username}}</td>
+                        <td>{{deviceId}}</td>
+                        <td>{{displayName}}</td>
+                        <td>
+                            <a href="/device-details/{{_id}}" class="glyphicon glyphicon-eye-open"></a>
+                            <a href="/device-details/{{_id}}" class="glyphicon glyphicon-remove-sign delete" data-id="{{_id}}"></a>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>

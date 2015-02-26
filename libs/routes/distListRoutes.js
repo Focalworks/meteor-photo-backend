@@ -7,7 +7,13 @@ Router.route('/dist-list-listing', {
     template: 'distListListing'
 });
 
-Router.route('/dist-list-listing/:_id', function () {
-    var distList = DistributionList.findOne({_id: this.params._id});
-    this.render('distListDetails', {data: distList});
+Router.route('/dist-list-listing/:_id', {
+    controller: 'AdminController',
+    template: 'distListDetails',
+    data: function () {
+        var distListId = this.params._id;
+        return {
+            device: DistributionList.findOne({_id: distListId})
+        }
+    }
 });
