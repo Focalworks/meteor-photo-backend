@@ -6,5 +6,10 @@
             <p>Mobile number: {{photoSet.createdBy}}</p>
             <p>Distribution list: <a href="/dist-list-listing/{{photoSet.distListId}}">Group</a></p>
         </div>
+        <ul>
+            {{#each photoSet.urls}}
+                <li><img src="{{this}}" alt="" width="300"/></li>
+            {{/each }}
+        </ul>
     </div>
 </template>

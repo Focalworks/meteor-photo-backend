@@ -31,3 +31,15 @@ Router.route('/add-photo-set', function () {
 
     this.response.end(photoSetId);
 }, {where: 'server'});
+
+Router.route('/photo-set-images', function () {
+    body = this.request.body;
+
+    var photoSetId, images;
+    photoSetId = body.photoSetId;
+    urls = EJSON.parse(body.urls);
+
+    var photoSetId = Meteor.call('updatePhotoSetImageUrls', photoSetId, urls);
+
+    this.response.end(photoSetId);
+}, {where: 'server'});
