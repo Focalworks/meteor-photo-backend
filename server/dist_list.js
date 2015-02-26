@@ -3,7 +3,7 @@
  */
 
 Meteor.publish("distributionList", function () {
-    return DistributionList.find({}, {sort: {created: -1}});
+    return DistributionList.find();
 });
 
 Meteor.methods({

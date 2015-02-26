@@ -4,7 +4,7 @@
 Meteor.subscribe("deviceRegistration");
 
 Template.registation.created = function() {
-    console.log(this);
+    //console.log(this);
 };
 
 Template.registation.rendered = function () {

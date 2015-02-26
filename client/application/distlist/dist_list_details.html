@@ -1,12 +1,12 @@
 <template name="distListDetails">
     <div class="row">
         <div class="col-md-12">
-            <h1>{{name}}</h1>
-            <p>Creator: {{creator}} - Display Name: {{displayName}}</p>
-            <p>Created on: {{created}}</p>
+            <h1>{{device.name}}</h1>
+            <p>Creator: {{device.creator}} - Display Name: {{device.displayName}}</p>
+            <p>Created on: {{device.created}}</p>
             <p>Members: </p>
             <ul>
-                {{#each members}}
+                {{#each device.members}}
                     <li>{{this}}</li>
                 {{/each}}
             </ul>
