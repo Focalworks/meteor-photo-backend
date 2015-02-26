@@ -18,6 +18,9 @@ Meteor.methods({
 
         return photoSetId;
     },
+    updatePhotoSetImageUrls: function (photoSetId, urls) {
+        PhotoSet.update({_id: photoSetId}, {$set: {urls: urls}});
+    },
     removePhotoSetById: function(id) {
         if (Meteor.user()) {
             PhotoSet.remove(id);
