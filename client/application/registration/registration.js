@@ -29,5 +29,12 @@ Template.registation.events({
         }
 
         return false;
+    },
+    'click #del-s3': function () {
+        console.log(123);
+        S3.delete("/sps2GiA49mdu2FDyQ/unclickd_2015261_35338.jpg", function (error, result) {
+            console.log("Error", error);
+            console.log("Result", result);
+        });
     }
 });

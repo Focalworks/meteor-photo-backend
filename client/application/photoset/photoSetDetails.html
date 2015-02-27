@@ -5,6 +5,12 @@
             <p>Created by: {{photoSet.displayName}}</p>
             <p>Mobile number: {{photoSet.createdBy}}</p>
             <p>Distribution list: <a href="/dist-list-listing/{{photoSet.distListId}}">Group</a></p>
+
+            <ul>
+                {{#each photoSet.urls}}
+                <li><img src="https://s3.amazonaws.com/{{this}}" alt="" width="200"/></li>
+                {{/each}}
+            </ul>
         </div>
     </div>
 </template>

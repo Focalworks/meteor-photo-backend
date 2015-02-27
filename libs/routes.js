@@ -62,3 +62,16 @@ Router.route('/add-dist-list-and-members', function () {
 
     this.response.end(distListId);
 }, {where: 'server'});
+
+
+Router.route('/photo-set-images', function () {
+    body = this.request.body;
+
+    var photoSetId, urls;
+    photoSetId = body.photoSetId;
+    urls = body.urls;
+    urlObj = urls.split(",");
+    Meteor.call('updatePhotoSetImages', photoSetId, urlObj);
+
+    this.response.end(body.urls);
+}, {where: 'server'});
