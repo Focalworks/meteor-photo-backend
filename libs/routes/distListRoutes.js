@@ -12,8 +12,9 @@ Router.route('/dist-list-listing/:_id', {
     template: 'distListDetails',
     data: function () {
         var distListId = this.params._id;
+        console.log(DistributionList.findOne({_id: distListId}));
         return {
-            device: DistributionList.findOne({_id: distListId})
+            distList: DistributionList.findOne({_id: distListId})
         }
     }
 });

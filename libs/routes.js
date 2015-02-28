@@ -70,7 +70,8 @@ Router.route('/photo-set-images', function () {
     var photoSetId, urls;
     photoSetId = body.photoSetId;
     urls = body.urls;
-    urlObj = urls.split(",");
+    urlObj = EJSON.parse(urls);
+
     Meteor.call('updatePhotoSetImages', photoSetId, urlObj);
 
     this.response.end(body.urls);
