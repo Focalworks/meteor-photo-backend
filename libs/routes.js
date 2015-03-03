@@ -73,6 +73,7 @@ Router.route('/photo-set-images', function () {
     urlObj = EJSON.parse(urls);
 
     Meteor.call('updatePhotoSetImages', photoSetId, urlObj);
+    Meteor.call('sendNotificationToGroupAboutPhotoset', photoSetId);
 
     this.response.end(body.urls);
 }, {where: 'server'});
