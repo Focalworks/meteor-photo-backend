@@ -1,12 +1,15 @@
 /**
  * Created by Amitav Roy on 21/2/15.
  */
+/*First one is unclickd*/
+/*Second money tracker*/
 Meteor.methods({
     sendDeviceRegisteredNotification: function (id) {
         HTTP.call("POST", "https://android.googleapis.com/gcm/send", {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'key=AIzaSyCpUi3tlnOZ01kcMkzLF5_mHreJrLxABo8'
+                //'Authorization': 'key=AIzaSyCpUi3tlnOZ01kcMkzLF5_mHreJrLxABo8'
+                'Authorization': 'key=AIzaSyDJn-FOAJaCIqJ5HV6ROLVJ5hw9SIqxj_w'
             },
             data: {
                 "registration_ids": [id],
